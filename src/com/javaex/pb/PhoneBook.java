@@ -1,5 +1,8 @@
 package com.javaex.pb;
 
+/*
+ * 전화번호부 틀을 담당하는 클래스
+ */
 public class PhoneBook {
 	private String name;
 	private String hp;

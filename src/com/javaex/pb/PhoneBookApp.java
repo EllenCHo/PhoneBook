@@ -19,7 +19,7 @@ public class PhoneBookApp {
 		System.out.println("*************************************");
 
 		pDB.ReadList(pbList);									//텍스트 파일에서 리스트로 목록 읽어들이기
-		management.setList(pbList);
+		management.setList(pbList);								//리스트를 관리할 수 있도록 클래스에게 리스트 넘기기
 		
 		while (flag) {
 			System.out.println("1.리스트\t2.등록\t3.삭제\t4.검색\t5.종료");
