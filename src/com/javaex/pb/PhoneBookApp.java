@@ -31,16 +31,13 @@ public class PhoneBookApp {
 				case 1:
 					System.out.println("<1.리스트>");
 					
-					pbList.removeAll(pbList);
-					pDB.ReadList(pbList);
-					
-					int i = 1;
-					
-					for(PhoneBook temp : pbList) {
-						System.out.println(i+"."+temp.getName()+"\t"+temp.getHp()+"\t"+temp.getCompany());
+					/*pbList.removeAll(pbList);
+					pDB.ReadList(pbList);*/
 						
-						i++;
+					for(PhoneBook temp : pbList) {
+						System.out.println((pbList.indexOf(temp)+1)+"."+temp.getName()+"\t"+temp.getHp()+"\t"+temp.getCompany());
 					}
+					
 					System.out.println();
 					break;
 				case 2:
@@ -57,7 +54,7 @@ public class PhoneBookApp {
 					
 					pbList.add(new PhoneBook(name, hp, company));
 					
-					pDB.WriteList(pbList);
+					/*pDB.WriteList(pbList);*/
 					
 					System.out.println("[등록되었습니다.]");
 					System.out.println();
@@ -68,9 +65,14 @@ public class PhoneBookApp {
 					
 					int j = sc.nextInt();
 					
+					if(pbList.size()+1 < j) {
+						System.out.println("리스트에 있는 번호가 아닙니다.");
+						break;
+					}
+					
 					pbList.remove(j-1);
 					
-					pDB.WriteList(pbList);
+					/*pDB.WriteList(pbList);*/
 					
 					System.out.println("[삭제되었습니다.]");
 					System.out.println();
@@ -81,9 +83,9 @@ public class PhoneBookApp {
 					
 					String searchName = sc.nextLine();
 					
-					for(int k = 0; k<pbList.size(); k++) {
-						if(pbList.get(k).getName().contains(searchName)) {
-							System.out.println((k+1)+"."+pbList.get(k).getName()+"\t"+pbList.get(k).getHp()+"\t"+pbList.get(k).getCompany());
+					for(PhoneBook search : pbList) {
+						if(search.getName().contains(searchName)) {
+							System.out.println((pbList.indexOf(search)+1)+"."+search.getName()+"\t"+search.getHp()+"\t"+search.getCompany());
 						}
 					}
 					
@@ -98,6 +100,7 @@ public class PhoneBookApp {
 
 		}
 		
+		pDB.WriteList(pbList);
 		
 		System.out.println("*************************************");
 		System.out.println("*               감사합니다                       *");
