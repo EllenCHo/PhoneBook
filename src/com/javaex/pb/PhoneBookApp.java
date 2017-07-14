@@ -57,8 +57,8 @@ public class PhoneBookApp {
 
 		}
 		
-		pDB.WriteList(pbList);										//텍스트 파일로 저장
-		
+		pDB.WriteList(pbList); // 텍스트 파일로 저장
+
 		System.out.println("*************************************");
 		System.out.println("*               감사합니다                       *");
 		System.out.println("*************************************");

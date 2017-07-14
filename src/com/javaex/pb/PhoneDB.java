@@ -31,17 +31,16 @@ public class PhoneDB {
 
 		br.close();
 	}
-	
-	
+
 	public void WriteList(List<PhoneBook> list) throws IOException {
 		Writer fw = new FileWriter("phoneDB.txt");
 		BufferedWriter bw = new BufferedWriter(fw);
 
-		for(PhoneBook pb : list) {
-			bw.write(pb.getName()+","+pb.getHp()+","+pb.getCompany());
+		for (PhoneBook pb : list) {
+			bw.write(pb.getName() + "," + pb.getHp() + "," + pb.getCompany());
 			bw.newLine();
 		}
-		
+
 		bw.close();
 	}
 

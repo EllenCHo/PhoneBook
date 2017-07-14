@@ -15,59 +15,61 @@ import java.util.Scanner;
 public class Management {
 	List<PhoneBook> list;
 	Scanner sc = new Scanner(System.in);
-	
+
 	public void setList(List<PhoneBook> list) {
-		this.list = list; 
+		this.list = list;
 	}
-	
+
 	public void showList() {
-		for(PhoneBook temp : list) {
-			System.out.println((list.indexOf(temp)+1)+"."+temp.getName()+"\t"+temp.getHp()+"\t"+temp.getCompany());
+		for (PhoneBook temp : list) {
+			System.out.println(
+					(list.indexOf(temp) + 1) + "." + temp.getName() + "\t" + temp.getHp() + "\t" + temp.getCompany());
 		}
 	}
-	
+
 	public void register() {
 		System.out.print(">이름: ");
 		String name = sc.nextLine();
-	
+
 		System.out.print(">휴대전화: ");
 		String hp = sc.nextLine();
-		
+
 		System.out.print(">집전화: ");
 		String company = sc.nextLine();
-		
+
 		list.add(new PhoneBook(name, hp, company));
 		System.out.println("[등록되었습니다.]");
 	}
-	
+
 	public void delete() {
 		System.out.print(">번호: ");
-		
+
 		int index = sc.nextInt();
-		
-		if(list.size() < index) {					//size는 리스트의 갯수를 반환한다.
+
+		if (list.size() < index) { // size는 리스트의 갯수를 반환한다.
 			System.out.println("리스트에 있는 번호가 아닙니다.");
 			System.out.println();
 		} else {
-			list.remove(index-1);
+			list.remove(index - 1);
 			System.out.println("[삭제되었습니다.]");
 		}
 	}
-	
+
 	public void search() {
 		boolean flag = false;
 		System.out.print(">이름: ");
-		
+
 		String name = sc.nextLine();
-		
-		for(PhoneBook search : list) {
-			if(search.getName().contains(name)) {
-				System.out.println((list.indexOf(search)+1)+"."+search.getName()+"\t"+search.getHp()+"\t"+search.getCompany());
+
+		for (PhoneBook search : list) {
+			if (search.getName().contains(name)) {
+				System.out.println((list.indexOf(search) + 1) + "." + search.getName() + "\t" + search.getHp() + "\t"
+						+ search.getCompany());
 				flag = true;
 			}
 		}
-		if(flag == false) {
-			System.out.println("이름을 찾지 못했습니다. [검색 단어:"+name+"]");
+		if (flag == false) {
+			System.out.println("이름을 찾지 못했습니다. [검색 단어:" + name + "]");
 		}
 	}
 }
