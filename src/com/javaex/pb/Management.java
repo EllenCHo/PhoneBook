@@ -60,6 +60,7 @@ public class Management {
 	}
 	
 	public void search() {
+		boolean flag = false;
 		System.out.print(">이름: ");
 		
 		String name = sc.nextLine();
@@ -67,7 +68,11 @@ public class Management {
 		for(PhoneBook search : list) {
 			if(search.getName().contains(name)) {
 				System.out.println((list.indexOf(search)+1)+"."+search.getName()+"\t"+search.getHp()+"\t"+search.getCompany());
+				flag = true;
 			}
+		}
+		if(flag == false) {
+			System.out.println("이름을 찾지 못했습니다. [검색 단어:"+name+"]");
 		}
 		System.out.println();
 	}
