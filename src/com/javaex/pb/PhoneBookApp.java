@@ -11,13 +11,15 @@ public class PhoneBookApp {
 		
 		Scanner sc = new Scanner(System.in);
 		List<PhoneBook> pbList = new ArrayList<PhoneBook>();
-		PhoneDB pDB = new PhoneDB();
+		PhoneDB pDB = new PhoneDB();							//텍스트 파일에서 읽고 저장하는 클래스 생성
+		Management management = new Management();				//리스트를 관리할 클래스 생성
 
 		System.out.println("*************************************");
 		System.out.println("*         전화번호 관리 프로그램                   *");
 		System.out.println("*************************************");
 
-		pDB.ReadList(pbList);
+		pDB.ReadList(pbList);									//텍스트 파일에서 리스트로 목록 읽어들이기
+		management.setList(pbList);
 		
 		while (flag) {
 			System.out.println("1.리스트\t2.등록\t3.삭제\t4.검색\t5.종료");
@@ -34,11 +36,13 @@ public class PhoneBookApp {
 					/*pbList.removeAll(pbList);
 					pDB.ReadList(pbList);*/
 						
-					for(PhoneBook temp : pbList) {
+					/*for(PhoneBook temp : pbList) {
 						System.out.println((pbList.indexOf(temp)+1)+"."+temp.getName()+"\t"+temp.getHp()+"\t"+temp.getCompany());
-					}
+					}*/
 					
-					System.out.println();
+					management.showList();
+					
+					/*System.out.println();*/
 					break;
 				case 2:
 					System.out.println("<2.등록>");
@@ -52,11 +56,13 @@ public class PhoneBookApp {
 					System.out.print(">집전화: ");
 					String company = sc.nextLine();
 					
-					pbList.add(new PhoneBook(name, hp, company));
+					/*pbList.add(new PhoneBook(name, hp, company));*/
 					
 					/*pDB.WriteList(pbList);*/
 					
-					System.out.println("[등록되었습니다.]");
+					management.register(name, hp, company);
+					
+					/*System.out.println("[등록되었습니다.]");*/
 					System.out.println();
 					break;
 				case 3:
@@ -65,17 +71,19 @@ public class PhoneBookApp {
 					
 					int j = sc.nextInt();
 					
-					if(pbList.size()+1 < j) {
+					/*if(pbList.size()+1 < j) {
 						System.out.println("리스트에 있는 번호가 아닙니다.");
 						break;
-					}
+					}*/
 					
-					pbList.remove(j-1);
+					/*pbList.remove(j-1);*/
 					
 					/*pDB.WriteList(pbList);*/
 					
-					System.out.println("[삭제되었습니다.]");
-					System.out.println();
+					/*System.out.println("[삭제되었습니다.]");
+					System.out.println();*/
+					
+					management.delete(j);
 					break;
 				case 4:
 					System.out.println("<4.검색>");
@@ -83,13 +91,13 @@ public class PhoneBookApp {
 					
 					String searchName = sc.nextLine();
 					
-					for(PhoneBook search : pbList) {
+					/*for(PhoneBook search : pbList) {
 						if(search.getName().contains(searchName)) {
 							System.out.println((pbList.indexOf(search)+1)+"."+search.getName()+"\t"+search.getHp()+"\t"+search.getCompany());
 						}
-					}
-					
-					System.out.println();
+					}*/
+					management.search(searchName);
+					/*System.out.println();*/
 					break;
 				case 5:
 					flag = false;
@@ -100,7 +108,7 @@ public class PhoneBookApp {
 
 		}
 		
-		pDB.WriteList(pbList);
+		pDB.WriteList(pbList);										//텍스트 파일로 저장
 		
 		System.out.println("*************************************");
 		System.out.println("*               감사합니다                       *");
