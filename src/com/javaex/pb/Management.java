@@ -45,10 +45,10 @@ public class Management {
 		System.out.print(">번호: ");
 
 		int index = sc.nextInt();
+		sc.nextLine();
 
 		if (list.size() < index) { // size는 리스트의 갯수를 반환한다.
 			System.out.println("리스트에 있는 번호가 아닙니다.");
-			System.out.println();
 		} else {
 			list.remove(index - 1);
 			System.out.println("[삭제되었습니다.]");
@@ -70,6 +70,51 @@ public class Management {
 		}
 		if (flag == false) {
 			System.out.println("이름을 찾지 못했습니다. [검색 단어:" + name + "]");
+		}
+	}
+
+	public void revise() {
+		System.out.print(">번호: ");
+
+		int index = sc.nextInt();
+		sc.nextLine();
+
+		if (list.size() < index) { // size는 리스트의 갯수를 반환한다.
+			System.out.println("리스트에 있는 번호가 아닙니다.");
+		} else {
+
+			System.out.println(index + "." + list.get(index - 1).getName() + "\t" + list.get(index - 1).getHp() + "\t"
+					+ list.get(index - 1).getCompany());
+
+			System.out.println("수정할 항목 (1.이름 2.휴대전화 3.집전화)");
+			System.out.print("> ");
+
+			int num = sc.nextInt();
+			sc.nextLine();
+
+			switch (num) {
+			case 1:
+				System.out.print(">이름: ");
+				String name = sc.nextLine();
+				list.get(index - 1).setName(name);
+				System.out.println("[수정되었습니다.]");
+				break;
+			case 2:
+				System.out.print(">휴대전화: ");
+				String hp = sc.nextLine();
+				list.get(index - 1).setHp(hp);
+				System.out.println("[수정되었습니다.]");
+				break;
+			case 3:
+				System.out.print(">집전화: ");
+				String company = sc.nextLine();
+				list.get(index - 1).setCompany(company);
+				System.out.println("[수정되었습니다.]");
+				break;
+			default:
+				System.out.println("잘못 입력하셨습니다.");
+				break;
+			}
 		}
 	}
 }
