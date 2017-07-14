@@ -30,13 +30,19 @@ public class Management {
 	public void register() {
 		System.out.print(">이름: ");
 		String name = sc.nextLine();
-
+		if(name.length()==0) {					//그냥 엔터를 쳤을 경우 한칸의 공백으로 대체해줌
+			name = " ";
+		}
 		System.out.print(">휴대전화: ");
 		String hp = sc.nextLine();
-
+		if(hp.length()==0) {					//그냥 엔터를 쳤을 경우 한칸의 공백으로 대체해줌
+			hp = " ";
+		}
 		System.out.print(">집전화: ");
 		String company = sc.nextLine();
-
+		if(company.length()==0) {					//그냥 엔터를 쳤을 경우 한칸의 공백으로 대체해줌
+			company = " ";
+		}
 		list.add(new PhoneBook(name, hp, company));
 		System.out.println("[등록되었습니다.]");
 	}
@@ -96,18 +102,27 @@ public class Management {
 			case 1:
 				System.out.print(">이름: ");
 				String name = sc.nextLine();
+				if(name.length()==0) {					//그냥 엔터를 쳤을 경우 한칸의 공백으로 대체해줌
+					name = " ";
+				}
 				list.get(index - 1).setName(name);
 				System.out.println("[수정되었습니다.]");
 				break;
 			case 2:
 				System.out.print(">휴대전화: ");
 				String hp = sc.nextLine();
+				if(hp.length()==0) {					//그냥 엔터를 쳤을 경우 한칸의 공백으로 대체해줌
+					hp = " ";
+				}
 				list.get(index - 1).setHp(hp);
 				System.out.println("[수정되었습니다.]");
 				break;
 			case 3:
 				System.out.print(">집전화: ");
 				String company = sc.nextLine();
+				if(company.length()==0) {					//그냥 엔터를 쳤을 경우 한칸의 공백으로 대체해줌
+					company = " ";
+				}
 				list.get(index - 1).setCompany(company);
 				System.out.println("[수정되었습니다.]");
 				break;

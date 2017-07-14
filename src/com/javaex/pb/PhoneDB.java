@@ -24,8 +24,9 @@ public class PhoneDB {
 			if (str == null) {
 				break;
 			}
-
+			
 			String[] info = str.split(",");
+			
 			list.add(new PhoneBook(info[0], info[1], info[2]));
 		}
 
