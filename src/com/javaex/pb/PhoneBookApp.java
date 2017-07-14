@@ -32,75 +32,27 @@ public class PhoneBookApp {
 			switch (num) {
 				case 1:
 					System.out.println("<1.리스트>");
-					
-					/*pbList.removeAll(pbList);
-					pDB.ReadList(pbList);*/
-						
-					/*for(PhoneBook temp : pbList) {
-						System.out.println((pbList.indexOf(temp)+1)+"."+temp.getName()+"\t"+temp.getHp()+"\t"+temp.getCompany());
-					}*/
-					
 					management.showList();
 					
-					/*System.out.println();*/
 					break;
 				case 2:
 					System.out.println("<2.등록>");
+					management.register();
 					
-					System.out.print(">이름: ");
-					String name = sc.nextLine();
-				
-					System.out.print(">휴대전화: ");
-					String hp = sc.nextLine();
-					
-					System.out.print(">집전화: ");
-					String company = sc.nextLine();
-					
-					/*pbList.add(new PhoneBook(name, hp, company));*/
-					
-					/*pDB.WriteList(pbList);*/
-					
-					management.register(name, hp, company);
-					
-					/*System.out.println("[등록되었습니다.]");*/
-					System.out.println();
 					break;
 				case 3:
 					System.out.println("<3.삭제>");
-					System.out.print(">번호: ");
+					management.delete();
 					
-					int j = sc.nextInt();
-					
-					/*if(pbList.size()+1 < j) {
-						System.out.println("리스트에 있는 번호가 아닙니다.");
-						break;
-					}*/
-					
-					/*pbList.remove(j-1);*/
-					
-					/*pDB.WriteList(pbList);*/
-					
-					/*System.out.println("[삭제되었습니다.]");
-					System.out.println();*/
-					
-					management.delete(j);
 					break;
 				case 4:
 					System.out.println("<4.검색>");
-					System.out.print(">이름: ");
+					management.search();
 					
-					String searchName = sc.nextLine();
-					
-					/*for(PhoneBook search : pbList) {
-						if(search.getName().contains(searchName)) {
-							System.out.println((pbList.indexOf(search)+1)+"."+search.getName()+"\t"+search.getHp()+"\t"+search.getCompany());
-						}
-					}*/
-					management.search(searchName);
-					/*System.out.println();*/
 					break;
 				case 5:
 					flag = false;
+					System.out.println();
 					break;
 				default :
 					System.out.println("다시 입력해주세요.");	
