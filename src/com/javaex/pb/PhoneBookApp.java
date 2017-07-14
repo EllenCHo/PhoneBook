@@ -33,30 +33,27 @@ public class PhoneBookApp {
 				case 1:
 					System.out.println("<1.리스트>");
 					management.showList();
-					
 					break;
 				case 2:
 					System.out.println("<2.등록>");
 					management.register();
-					
 					break;
 				case 3:
 					System.out.println("<3.삭제>");
 					management.delete();
-					
 					break;
 				case 4:
 					System.out.println("<4.검색>");
 					management.search();
-					
 					break;
 				case 5:
 					flag = false;
-					System.out.println();
 					break;
 				default :
 					System.out.println("다시 입력해주세요.");	
 			}
+			
+			System.out.println();
 
 		}
 		

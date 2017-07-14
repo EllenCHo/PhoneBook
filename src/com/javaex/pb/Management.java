@@ -19,13 +19,11 @@ public class Management {
 	public void setList(List<PhoneBook> list) {
 		this.list = list; 
 	}
+	
 	public void showList() {
 		for(PhoneBook temp : list) {
 			System.out.println((list.indexOf(temp)+1)+"."+temp.getName()+"\t"+temp.getHp()+"\t"+temp.getCompany());
 		}
-		
-		System.out.println();
-		
 	}
 	
 	public void register() {
@@ -40,7 +38,6 @@ public class Management {
 		
 		list.add(new PhoneBook(name, hp, company));
 		System.out.println("[등록되었습니다.]");
-		System.out.println();
 	}
 	
 	public void delete() {
@@ -54,9 +51,7 @@ public class Management {
 		} else {
 			list.remove(index-1);
 			System.out.println("[삭제되었습니다.]");
-			System.out.println();
 		}
-		
 	}
 	
 	public void search() {
@@ -74,7 +69,5 @@ public class Management {
 		if(flag == false) {
 			System.out.println("이름을 찾지 못했습니다. [검색 단어:"+name+"]");
 		}
-		System.out.println();
 	}
-
 }
